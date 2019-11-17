@@ -1,33 +1,26 @@
-arithmetic_list = [ 4, 7, 5, 1, 9, 3, 11 ]
+#arithmetic_list = [ 14, 7, 14 ]
+#arithmetic_list = [ 4, 4, 4, 2/3, 1/3, 5, 13 ]
+arithmetic_list = [-5, -5, 5, 5, -15]
 
-index_for_left = 2
-index_for_right = 2
-left_index = 0
-left_total_one = 0
-left_total_two = 0
-final_left_total = 0
-left_amount = 0
-right_index = index_for_right+1
-right_total_one = 0
-right_total_two = 0
-final_right_total = 0
-right_amount = 0
 
-while index_for_right < 7:
-    for right_index in range (index_for_right+1, 7):
-        for right_amount in range (index_for_right+1,7):
-            final_right_total = final_right_total + arithmetic_list[right_amount]
-            print final_right_total
-    index_for_right = index_for_right + 1
-"""
-while index_for_left < 7:
-    for left_index in range (0, index_for_left-1):
-        for left_amount in range (0, index_for_left-1):
-            final_left_total = final_left_total + arithmetic_list[left_amount]
-            if final_left_total == final_right_total:
-                print arithmetic_list[index]
-        
-    index_for_left = index_for_left + 1
-"""
+for index in range (2, len(arithmetic_list)):
+    print 'the index is %s' %(index)
+    final_right_total = 0
+
     
+    for right_index in range (index + 1, len(arithmetic_list)):
+        final_right_total = final_right_total + arithmetic_list[right_index]
+        print 'the right total so far from index %s to index %s is %s'%(right_index, len(arithmetic_list), final_right_total)
+
+
+    final_left_total = 0 
+
+        
+    for left_index in range (0, index):
+        final_left_total = final_left_total + arithmetic_list[left_index]
+        print ' the left total so far from index 0 to index %s is %s'% (left_index, final_left_total)
+    print 'comparing %s to %s to see if they are the same'%(final_right_total, final_left_total)
+    if final_left_total == final_right_total:
+        print ' the artihmetic medium is at the index %s'%(index)
+            
 
